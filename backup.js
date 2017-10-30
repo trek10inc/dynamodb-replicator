@@ -16,7 +16,7 @@ module.exports = function(config, done) {
             return done(new Error('Must provide a bucket, prefix and jobid for backups'));
 
     var index = !isNaN(parseInt(config.segment)) ? config.segment.toString() : 0;
-    var key = [config.backup.prefix, config.backup.jobid, index].join('/');
+    var key = [config.backup.prefix, config.backup.jobid, index].join('/') + '.gz';
     var count = 0;
     var size = 0;
 
