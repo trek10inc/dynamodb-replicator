@@ -42,7 +42,8 @@ module.exports = function(config, done) {
     s3.upload({
         Bucket: config.backup.bucket,
         Key: key,
-        Body: data
+        Body: data,
+        Tagging: config.tags
     }, function(err) {
         if (err) return next(err);
         log('[segment %s] Uploaded dynamo backup to s3://%s/%s', index, config.backup.bucket, key);

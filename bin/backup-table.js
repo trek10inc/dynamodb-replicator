@@ -16,6 +16,7 @@ function usage() {
     console.error('  --segment    segment identifier (0-based)');
     console.error('  --segments   total number of segments');
     console.error('  --metric     cloudwatch metric namespace. Will provide dimension TableName = the name of the backed-up table.');
+    console.error('  --tags       s3 object tags to apply to backup files')
 }
 
 if (args.help) {
@@ -52,6 +53,7 @@ var config = {
     table: table[1],
     segment: args.segment,
     segments: args.segments,
+    tags: args.tags,
     log: log.info,
     backup: {
         bucket: s3url.Bucket,
